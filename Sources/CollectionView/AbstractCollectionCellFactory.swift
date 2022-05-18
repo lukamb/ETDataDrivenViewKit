@@ -120,6 +120,15 @@ open class AbstractCollectionCellFactory<ContentType, View: UICollectionViewCell
     override func didDeselectInternal(_ content: Any) {
         didDeselect(typedContent(content)!)
     }
+
+    /// Default is `toProposedIndexPath`
+    open func targetIndexPathForMove(from sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        return proposedDestinationIndexPath
+    }
+
+    override func targetIndexPathForMoveInternal(from sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        return targetIndexPathForMove(from: sourceIndexPath, toProposedIndexPath: proposedDestinationIndexPath)
+    }
     
     /// Default is false
     open func shouldShowMenu(_ content: ContentType) -> Bool {

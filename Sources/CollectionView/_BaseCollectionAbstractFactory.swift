@@ -33,4 +33,8 @@ open class _BaseCollectionAbstractFactory: _BaseAbstractFactory {
     func didDeselectInternal(_ content: Any) {
         fatalError("Not Implemented")
     }
+
+    func targetIndexPathForMoveInternal(from sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        fatalError("Not Implemented")
+    }
 }

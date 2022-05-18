@@ -221,6 +221,10 @@ extension CollectionAdapter: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         selectCellFactory(for: indexPath).willDisplayInternal(cell, content(at: indexPath))
     }
+
+    public func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveFromItemAt currentIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath {
+        selectCellFactory(for: currentIndexPath).targetIndexPathForMoveInternal(from: currentIndexPath, toProposedIndexPath: proposedIndexPath)
+    }
     
     public func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         selectCellFactory(for: indexPath).performActionInternal(action: action, for: content(at: indexPath), withSender: sender)
